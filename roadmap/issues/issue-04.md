@@ -1,7 +1,7 @@
 ---
 id: issue-04
 title: Contrato de layout de página — patrón visual único del dashboard
-status: todo
+status: hecho
 priority: alta
 type: redesign
 area: frontend-dashboard
@@ -32,7 +32,7 @@ impeccable_commands:
 | --- | --- |
 | **ID** | `issue-04` |
 | **Título** | Contrato de layout de página — patrón visual único |
-| **Estado** | `todo` |
+| **Estado** | `hecho` |
 | **Prioridad** | `alta` (bloquea 05–08) |
 | **Tipo** | `redesign` (foundation) |
 | **Register** | `product` |

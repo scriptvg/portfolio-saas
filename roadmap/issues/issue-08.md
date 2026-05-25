@@ -1,7 +1,7 @@
 ---
 id: issue-08
 title: Settings shell (jerarquía h1/h2) + audit de consistencia CRUD
-status: todo
+status: hecho
 priority: media
 type: redesign
 area: frontend-dashboard
@@ -29,7 +29,7 @@ impeccable_commands:
 | --- | --- |
 | **ID** | `issue-08` |
 | **Título** | Settings shell + audit de consistencia CRUD |
-| **Estado** | `todo` |
+| **Estado** | `hecho` |
 | **Prioridad** | `media` |
 | **Tipo** | `redesign` |
 | **Register** | `product` |

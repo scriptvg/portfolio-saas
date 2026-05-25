@@ -1,7 +1,7 @@
 ---
 id: issue-06
 title: Settings/Workspace — consistencia split/stack y densidad de la tab
-status: todo
+status: hecho
 priority: media
 type: redesign
 area: frontend-dashboard
@@ -29,7 +29,7 @@ impeccable_commands:
 | --- | --- |
 | **ID** | `issue-06` |
 | **Título** | Settings/Workspace: consistencia split/stack y densidad |
-| **Estado** | `todo` |
+| **Estado** | `hecho` |
 | **Prioridad** | `media` |
 | **Tipo** | `redesign` |
 | **Register** | `product` |

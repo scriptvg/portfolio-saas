@@ -1,7 +1,7 @@
 ---
 id: issue-09
 title: Cuadrar radios sueltos — alinear app al lenguaje squared (R4)
-status: todo
+status: hecho
 priority: media
 type: refactor
 area: frontend-dashboard
@@ -28,7 +28,7 @@ impeccable_commands:
 | --- | --- |
 | **ID** | `issue-09` |
 | **Título** | Cuadrar radios sueltos — alinear app al lenguaje squared |
-| **Estado** | `todo` |
+| **Estado** | `hecho` |
 | **Prioridad** | `media` |
 | **Tipo** | `refactor` |
 | **Register** | `product` |

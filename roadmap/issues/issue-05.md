@@ -1,7 +1,7 @@
 ---
 id: issue-05
 title: GitHub — alinear al contrato de layout (radio, header, estados)
-status: todo
+status: hecho
 priority: alta
 type: redesign
 area: frontend-dashboard
@@ -31,7 +31,7 @@ impeccable_commands:
 | --- | --- |
 | **ID** | `issue-05` |
 | **Título** | GitHub: alinear al contrato de layout |
-| **Estado** | `todo` |
+| **Estado** | `hecho` |
 | **Prioridad** | `alta` |
 | **Tipo** | `redesign` |
 | **Register** | `product` |

@@ -1,6 +1,6 @@
 ---
 title: Contrato de layout de página — portfolio-saas
-status: draft
+status: active
 updated: 2026-05-24
 audience: agents
 summary: Anatomía obligatoria de página, reglas R1–R7, primitivas compartidas y decisiones de diseño fundacionales para el dashboard.
@@ -8,7 +8,7 @@ summary: Anatomía obligatoria de página, reglas R1–R7, primitivas compartida
 
 # PAGE-LAYOUT — Contrato de layout de página
 
-> **Estado:** `draft` — las secciones marcadas como "Propuesta (a ratificar)" están implementadas con el default propuesto pero requieren ratificación del reviewer/usuario antes de cerrarse como definitivas. Ver `issue-04.md`.
+> **Estado:** `active` — contrato ratificado (2026-05-24). Las decisiones D1–D4 quedaron confirmadas (incluida la corrección clave: lenguaje **cuadrado**, R4). Issues 04–09 cerrados. Ver `issue-04.md`.
 >
 > **Issues que dependen de este documento:** `issue-05` (GitHub), `issue-06` (Workspace), `issue-07` (Inicio), `issue-08` (Settings shell + audit CRUD).
 
@@ -335,10 +335,10 @@ Estas decisiones estan implementadas con los defaults propuestos en este issue p
 
 | #   | Pregunta                                     | Default implementado                                                        | Estado                  |
 | --- | -------------------------------------------- | --------------------------------------------------------------------------- | ----------------------- |
-| D1  | Ritmo vertical base                          | `space-y-2` (patron CRUD). Inicio baja a `space-y-2` en `issue-07`          | Propuesta (a ratificar) |
-| D2  | `ModuleHeader` para GitHub                   | Si — via `mediaSlot` opcional y `onCreate` opcional                         | Propuesta (a ratificar) |
+| D1  | Ritmo vertical base                          | `space-y-2` (patron CRUD). Inicio baja a `space-y-2` en `issue-07`          | Ratificado |
+| D2  | `ModuleHeader` para GitHub                   | Si — via `mediaSlot` opcional y `onCreate` opcional                         | Ratificado |
 | D3  | Quitar `<h2>` redundante en tabs de Settings | Si — implementado en `issue-08` (2026-05-24)                                | Ratificado              |
-| D4  | Split vs stack en Settings                   | Default `stack`; `split` solo consistente por tab — ejecucion en `issue-06` | Propuesta (a ratificar) |
+| D4  | Split vs stack en Settings                   | Default `stack`; `split` solo consistente por tab — ejecucion en `issue-06` | Ratificado |
 
 ---
 

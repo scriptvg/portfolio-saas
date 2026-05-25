@@ -1,7 +1,7 @@
 ---
 id: issue-07
 title: Inicio — alinear header y spacing al contrato de layout
-status: todo
+status: hecho
 priority: baja
 type: redesign
 area: frontend-dashboard
@@ -28,7 +28,7 @@ impeccable_commands:
 | --- | --- |
 | **ID** | `issue-07` |
 | **Título** | Inicio: alinear header y spacing al contrato |
-| **Estado** | `todo` |
+| **Estado** | `hecho` |
 | **Prioridad** | `baja` |
 | **Tipo** | `redesign` |
 | **Register** | `product` |
