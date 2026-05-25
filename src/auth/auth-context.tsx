@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { fetchMe, signIn } from "@/lib/api/auth"
+import { fetchMe, logout, signIn } from "@/lib/api/auth"
 import { onSessionInvalidated } from "@/lib/api/client"
 import {
   clearAccessToken,
@@ -65,6 +65,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [])
 
   const signOut = React.useCallback(() => {
+    // Revoca el refresh token en el servidor para invalidar la sesión de forma
+    // definitiva (protección contra robo de cookie). Se llama sin await porque
+    // el logout local debe ocurrir independientemente del resultado de la red:
+    // si la cookie ya está expirada o el servidor no responde, el usuario
+    // igualmente debe quedar deslogueado en el cliente.
+    logout().catch(() => {
+      // Fallo de red o 4xx: la cookie expirará sola en el servidor.
+      // No bloquear el logout local.
+    })
     clearSession()
   }, [clearSession])
 

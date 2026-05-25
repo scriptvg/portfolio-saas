@@ -1,6 +1,6 @@
 import type { AuthUser } from "@/auth/types"
 
-import { apiRequest } from "@/lib/api/client"
+import { apiClient, apiRequest } from "@/lib/api/client"
 
 type ApiAuthMethods = {
   password: boolean
@@ -116,5 +116,44 @@ export async function changePassword(
     method: "POST",
     url: "/auth/change-password",
     data: { currentPassword, newPassword },
+  })
+}
+
+/**
+ * Solicita un nuevo access token usando el refresh token httpOnly que viaja
+ * automáticamente en la cookie. No envía body; la cookie la gestiona el navegador.
+ * Devuelve el nuevo access token o lanza si el refresh está expirado / revocado.
+ *
+ * Usa `apiClient` directamente (no `apiRequest`) para poder marcar la config
+ * con `_isRefreshRequest: true` y que el interceptor de 401 no la reiIntente,
+ * evitando así el bucle de refresh.
+ */
+export async function refreshAccessToken(): Promise<string> {
+  const res = await apiClient.request<{
+    success: boolean
+    data: { token: string }
+  }>({
+    method: "POST",
+    url: "/auth/refresh",
+    // Esta propiedad es preservada por Axios en InternalAxiosRequestConfig.
+    // El interceptor de 401 en client.ts la lee para cortar la recursión.
+    _isRefreshRequest: true,
+  } as Parameters<typeof apiClient.request>[0] & { _isRefreshRequest: true })
+
+  const body = res.data
+  if (!body.success || !body.data?.token) {
+    throw new Error("Refresh inválido: respuesta inesperada del servidor")
+  }
+  return body.data.token
+}
+
+/**
+ * Invalida el refresh token en el servidor y hace que el navegador borre la cookie.
+ * Idempotente: un 4xx/5xx no debe bloquear el logout local.
+ */
+export async function logout(): Promise<void> {
+  await apiRequest<null>({
+    method: "POST",
+    url: "/auth/logout",
   })
 }
