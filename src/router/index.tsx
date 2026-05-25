@@ -28,6 +28,9 @@ const ExperiencesPage = lazy(() =>
 const ProjectsPage = lazy(() =>
   import("@/pages/projects-page").then((m) => ({ default: m.ProjectsPage }))
 )
+const EducationPage = lazy(() =>
+  import("@/pages/education-page").then((m) => ({ default: m.EducationPage }))
+)
 const GithubPage = lazy(() =>
   import("@/pages/github-page").then((m) => ({ default: m.GithubPage }))
 )
@@ -110,6 +113,10 @@ export const router = createBrowserRouter([
           {
             path: "experiences",
             element: <ExperiencesPage />,
+          },
+          {
+            path: "education",
+            element: <EducationPage />,
           },
           {
             path: "projects",

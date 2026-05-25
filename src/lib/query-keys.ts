@@ -3,12 +3,13 @@ export const queryKeys = {
   technology: (id: string) => [...queryKeys.technologies, id] as const,
   experiences: ["experiences"] as const,
   experience: (id: string) => [...queryKeys.experiences, id] as const,
+  education: ["education"] as const,
+  educationItem: (id: string) => [...queryKeys.education, id] as const,
   projects: ["projects"] as const,
   project: (id: string) => [...queryKeys.projects, id] as const,
   webhooks: ["webhooks"] as const,
   webhookEvents: ["webhooks", "events"] as const,
-  webhookDeliveries: (id: string) =>
-    ["webhooks", id, "deliveries"] as const,
+  webhookDeliveries: (id: string) => ["webhooks", id, "deliveries"] as const,
   githubStatus: ["github", "status"] as const,
   githubRepos: (params: Record<string, unknown> = {}) =>
     ["github", "repos", params] as const,

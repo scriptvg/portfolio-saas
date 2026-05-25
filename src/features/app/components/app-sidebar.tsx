@@ -24,6 +24,7 @@ import {
   BookOpenIcon,
   BriefcaseIcon,
   FolderKanbanIcon,
+  GraduationCapIcon,
   SettingsIcon,
 } from "lucide-react"
 import { SiGithub } from "react-icons/si"
@@ -36,6 +37,7 @@ export function AppSidebar() {
   const techActive = pathname.startsWith("/dashboard/technologies")
   const settingsActive = pathname.startsWith("/dashboard/settings")
   const experiencesActive = pathname.startsWith("/dashboard/experiences")
+  const educationActive = pathname.startsWith("/dashboard/education")
   const projectsActive = pathname.startsWith("/dashboard/projects")
   const githubActive = pathname.startsWith("/dashboard/github")
 
@@ -96,6 +98,18 @@ export function AppSidebar() {
                   <NavLink to="/dashboard/experiences">
                     <BriefcaseIcon />
                     <span>Experiencias</span>
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  tooltip="Educación"
+                  isActive={educationActive}
+                >
+                  <NavLink to="/dashboard/education">
+                    <GraduationCapIcon />
+                    <span>Educación</span>
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>

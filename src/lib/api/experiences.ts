@@ -14,7 +14,6 @@ export const EMPLOYMENT_TYPES = [
   "contract",
   "freelance",
   "volunteer",
-  "bootcamp",
 ] as const
 
 export type EmploymentType = (typeof EMPLOYMENT_TYPES)[number]
@@ -26,7 +25,6 @@ export const EMPLOYMENT_TYPE_LABELS: Record<EmploymentType, string> = {
   contract: "Contrato",
   freelance: "Freelance",
   volunteer: "Voluntariado",
-  bootcamp: "Bootcamp",
 }
 
 export type ExperienceRow = {

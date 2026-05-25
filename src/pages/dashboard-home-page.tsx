@@ -4,6 +4,7 @@ import {
   BookOpenIcon,
   BriefcaseIcon,
   FolderKanbanIcon,
+  GraduationCapIcon,
   SettingsIcon,
   type LucideIcon,
 } from "lucide-react"
@@ -11,6 +12,7 @@ import {
 import { cn } from "@/lib/utils"
 import { useTechnologiesQuery } from "@/lib/queries/technologies"
 import { useExperiencesQuery } from "@/lib/queries/experiences"
+import { useEducationQuery } from "@/lib/queries/education"
 import { useProjectsQuery } from "@/lib/queries/projects"
 import { Page, PageContent, PageHeader } from "@/components/page"
 import { Badge } from "@/components/ui/badge"
@@ -38,6 +40,7 @@ interface ModuleRow {
 export function DashboardHomePage() {
   const technologies = useTechnologiesQuery()
   const experiences = useExperiencesQuery()
+  const education = useEducationQuery()
   const projects = useProjectsQuery()
 
   const rows: ModuleRow[] = [
@@ -58,6 +61,15 @@ export function DashboardHomePage() {
       count: experiences.data?.length,
       loading: experiences.isPending,
       error: experiences.isError,
+    },
+    {
+      to: "/dashboard/education",
+      label: "Educación",
+      hint: "Titulaciones, instituciones y periodos del portfolio público",
+      icon: GraduationCapIcon,
+      count: education.data?.length,
+      loading: education.isPending,
+      error: education.isError,
     },
     {
       to: "/dashboard/projects",
