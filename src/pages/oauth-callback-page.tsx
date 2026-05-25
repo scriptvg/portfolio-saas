@@ -3,7 +3,27 @@ import { useNavigate, useSearchParams } from "react-router-dom"
 import { toast } from "sonner"
 
 import { useAuth } from "@/auth/auth-context"
+import { isApiClientError } from "@/lib/api/errors"
 import { Spinner } from "@/components/ui/spinner"
+
+function resolveOAuthError(error: unknown): string {
+  if (isApiClientError(error)) {
+    if (error.statusCode === 429) {
+      return "Demasiados intentos. Espera un momento y vuelve a intentarlo."
+    }
+    if (error.statusCode === 401 || error.statusCode === 403) {
+      return "Tu sesión no es válida o expiró. Inicia sesión de nuevo."
+    }
+    // Error de red: statusCode es undefined y el mensaje viene de connectError
+    if (error.statusCode === undefined) {
+      return error.message
+    }
+    // Cualquier otro ApiClientError: mostrar el mensaje real de la API
+    return error.message
+  }
+  // Error no tipado (inesperado): no exponer detalles internos
+  return "Ocurrió un error inesperado. Inténtalo de nuevo."
+}
 
 export function OAuthCallbackPage() {
   const [search] = useSearchParams()
@@ -22,8 +42,10 @@ export function OAuthCallbackPage() {
         toast.success("Sesión iniciada")
         navigate("/dashboard", { replace: true })
       })
-      .catch(() => {
-        setError("El token no es válido o expiró.")
+      .catch((err: unknown) => {
+        // console.error para diagnóstico; no expone datos sensibles (solo el shape del error)
+        console.error("[OAuthCallbackPage] signInWithToken failed:", err)
+        setError(resolveOAuthError(err))
       })
   }, [search, signInWithToken, navigate])
 
