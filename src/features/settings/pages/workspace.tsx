@@ -33,6 +33,8 @@ import {
 } from "@/components/ui/select"
 import { Spinner } from "@/components/ui/spinner"
 import { Textarea } from "@/components/ui/textarea"
+import { AiAssist } from "@/features/ai/ai-assist"
+import { buildBioPrompt } from "@/features/ai/prompts"
 import { AVATAR_ACCEPT_MIMES, AVATAR_MAX_BYTES } from "@/features/settings/api"
 import { PUBLIC_SITE_URL } from "@/features/settings/types"
 import type { WorkspaceDraft, WorkspaceLink } from "@/features/settings/types"
@@ -296,12 +298,26 @@ export function WorkspaceSettings() {
           </SettingsFormField>
 
           <SettingsFormField label="Bio corta" htmlFor="workspace-bio">
-            <Textarea
-              id="workspace-bio"
-              value={draft.bio}
-              onChange={(e) => update("bio", e.target.value)}
-              rows={3}
-            />
+            <div className="flex flex-col gap-2">
+              <Textarea
+                id="workspace-bio"
+                value={draft.bio}
+                onChange={(e) => update("bio", e.target.value)}
+                rows={3}
+              />
+              <AiAssist
+                label="Generar bio"
+                onApply={(value) => update("bio", value)}
+                options={{ maxTokens: 200 }}
+                buildMessages={() =>
+                  buildBioPrompt({
+                    publicName: draft.publicName,
+                    tagline: draft.tagline,
+                    bio: draft.bio,
+                  })
+                }
+              />
+            </div>
           </SettingsFormField>
 
           <SettingsFormField

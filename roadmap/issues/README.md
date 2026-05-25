@@ -16,6 +16,7 @@ Cada archivo `issue-NN.md` es la **fuente de verdad** para un cambio planificado
 | `issue-07.md` | Inicio: alinear header y spacing al contrato |
 | `issue-08.md` | Settings shell (jerarquía h1/h2) + audit CRUD |
 | `issue-09.md` | Cuadrar radios sueltos — alinear app al lenguaje squared |
+| `issue-10.md` | Fundamentos IA — cliente Ollama, hook de streaming y asistente de texto |
 | `references/` | Capturas y assets visuales del issue |
 
 > **Tanda UI/UX (consistencia visual):** `issue-04` es fundacional y define el contrato de layout; `issue-05`–`09` se alinean a él. Orden sugerido: 04 → (05, 06, 07, 08, 09 en paralelo). `issue-09` (radios) es independiente del redibujo y puede ir en cualquier momento.
